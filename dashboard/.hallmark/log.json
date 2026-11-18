@@ -1,0 +1,29 @@
+[
+ {
+  "scope": "app",
+  "shape": "app screen",
+  "theme": "coral",
+  "axes": "light/grotesk-sans/neutral",
+  "hero": "none",
+  "nav": "grouped sidebar and compact top bar",
+  "footer": "none",
+  "imagery": "none",
+  "photos": [],
+  "entry": "dashboard/app/globals.css",
+  "fingerprint": "grouped-sidebar|context-bar|dense-tables|inline-actions",
+  "sections": [
+   "overview",
+   "holds",
+   "calls",
+   "call detail",
+   "onboarding"
+  ],
+  "signature": "holds action queue",
+  "waived": [
+   "7b"
+  ],
+  "prompt": "Audit and restyle the carrier operations dashboard to the supplied HappyRobot design language",
+  "date": "2026-11-10",
+  "mode": "build"
+ }
+]

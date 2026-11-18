@@ -1,0 +1,23 @@
+.env
+.DS_Store
+node_modules/
+__pycache__/
+.venv/
+docs/research/*_files/
+service/node_modules/
+service/dist/
+
+# dashboard (Next.js)
+dashboard/node_modules/
+dashboard/.next/
+dashboard/.env.local
+
+# Video recordings and video scripts stay local
+recordings/
+*.mov
+*.mp4
+*.screenstudio
+docs/deliverables/VIDEO_SCRIPT.md
+docs/deliverables/VIDEO_TELEPROMPTER.txt
+docs/deliverables/teleprompter/
+.tmp-upload/

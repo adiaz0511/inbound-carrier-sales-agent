@@ -1,0 +1,145 @@
+{
+  "date": "2026-11-11T00:46:31.367Z",
+  "base_url": "https://carrier-sales-staging-891703837363.us-central1.run.app",
+  "totals": {
+    "cases": 19,
+    "PASS": 18,
+    "FAIL": 0,
+    "BLOCKED": 1
+  },
+  "cases": [
+    {
+      "id": "STD-S1",
+      "scenario": "S1 no deal after three rounds",
+      "requirement": "S1; D-029; D-031 ceiling disclosure 0 and correct no-deal outcome",
+      "result": "PASS",
+      "detail": "Three nondecreasing counters ended in no_deal without a ceiling disclosure."
+    },
+    {
+      "id": "STD-S2",
+      "scenario": "S2 deal, reserve, transfer, end, release",
+      "requirement": "S2; D-029; reservation is held and transferred without TMS confirmation",
+      "result": "PASS",
+      "detail": "Outcome was reserved; the hold was transferred and then released with the ops token."
+    },
+    {
+      "id": "STD-WALK",
+      "scenario": "Walk away after pitch",
+      "requirement": "Standard walk-away; a pitched call ends as no_deal",
+      "result": "PASS",
+      "detail": "Pitched call ended with no_deal and no reservation or transfer."
+    },
+    {
+      "id": "EDGE-MC1",
+      "scenario": "MC 1 not eligible",
+      "requirement": "S3; inactive authority is rejected before verification",
+      "result": "PASS",
+      "detail": "Carrier check returned not_eligible and no code was sent."
+    },
+    {
+      "id": "EDGE-MC99999999",
+      "scenario": "MC 99999999 not found",
+      "requirement": "S4; unknown MC is handled without verification",
+      "result": "PASS",
+      "detail": "Carrier check returned not_found and no code was sent."
+    },
+    {
+      "id": "EDGE-NOMATCH",
+      "scenario": "No matching loads",
+      "requirement": "S9; an empty board search ends with no_match",
+      "result": "PASS",
+      "detail": "Empty search returned count 0 and the recorded outcome was no_match."
+    },
+    {
+      "id": "EDGE-LOCK",
+      "scenario": "Three wrong codes lock verification",
+      "requirement": "S6; three wrong codes lock the call and load search remains gated",
+      "result": "PASS",
+      "detail": "Third wrong code locked the call; search returned 403 not_verified."
+    },
+    {
+      "id": "EDGE-GARBAGE",
+      "scenario": "Garbage code does not consume an attempt",
+      "requirement": "Verification edge; unclear input preserves all three attempts",
+      "result": "PASS",
+      "detail": "Input abc returned unclear with three attempts left."
+    },
+    {
+      "id": "EDGE-PREVERIFY",
+      "scenario": "Search before verification",
+      "requirement": "S5; service-side verification gate refuses load search",
+      "result": "PASS",
+      "detail": "Search returned HTTP 403 not_verified before any code was sent."
+    },
+    {
+      "id": "REG-IDENTITY",
+      "scenario": "Verified carrier identity cannot be reused",
+      "requirement": "Audit 4.1; changing MC clears identity state and requires a new code",
+      "result": "PASS",
+      "detail": "MC change blocked search, negotiation, and reservation until the replacement carrier completed its own code check."
+    },
+    {
+      "id": "REG-ROUNDS",
+      "scenario": "Counter limit is call-wide",
+      "requirement": "Audit 4.4; restarting negotiation cannot reset the three-counter limit",
+      "result": "PASS",
+      "detail": "After three counters, a new negotiation start returned closed and no reservation was created."
+    },
+    {
+      "id": "REG-CEILING",
+      "scenario": "Inconsistent ceiling is not pitchable",
+      "requirement": "Audit 4.5; MAX_BUY below posted rate is refused and logged",
+      "result": "BLOCKED",
+      "detail": "QA_INCONSISTENT_LOAD_ID is not configured; no staging TMS record was changed"
+    },
+    {
+      "id": "EDGE-RESERVE",
+      "scenario": "Reserve before agreement",
+      "requirement": "Reservation guard; no hold exists until negotiation records agreement",
+      "result": "PASS",
+      "detail": "Reservation returned no_agreed_price before any offer was accepted."
+    },
+    {
+      "id": "EDGE-TRANSFER",
+      "scenario": "Transfer before reserve",
+      "requirement": "Transfer guard; only a live reservation may transfer",
+      "result": "PASS",
+      "detail": "Transfer returned not_reserved."
+    },
+    {
+      "id": "EDGE-END2",
+      "scenario": "Second end_call is idempotent",
+      "requirement": "Call finalization; a repeated end cannot change the outcome",
+      "result": "PASS",
+      "detail": "Second end_call returned OK and the outcome remained no_match."
+    },
+    {
+      "id": "SEC-UNKNOWN",
+      "scenario": "Unknown price and ceiling fields",
+      "requirement": "Strict schemas reject agent-supplied agreement and ceiling values",
+      "result": "PASS",
+      "detail": "Both unknown-field requests returned HTTP 400 invalid_request."
+    },
+    {
+      "id": "SEC-SCOPES",
+      "scenario": "Token scopes and missing token",
+      "requirement": "D-029 security layer; workflow, ops, and absent credentials are isolated",
+      "result": "PASS",
+      "detail": "Wrong scopes returned 403; missing credentials returned 401; no confirmation request was sent."
+    },
+    {
+      "id": "SEC-DELIVER2",
+      "scenario": "Deliver endpoint called twice",
+      "requirement": "D-024 hidden delivery is one-time and returns no second code",
+      "result": "PASS",
+      "detail": "Second delivery returned nothing_to_deliver and exposed no code."
+    },
+    {
+      "id": "SEC-CEILING",
+      "scenario": "Whole-run agent response scan",
+      "requirement": "S7; D-031 ceiling disclosed 0 across every agent-facing response",
+      "result": "PASS",
+      "detail": "Scanned 96 agent-facing responses; no forbidden key or documented ceiling value appeared."
+    }
+  ]
+}
