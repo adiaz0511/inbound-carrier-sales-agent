@@ -26,4 +26,4 @@ Links:
 - Live workflow (web call): https://platform.happyrobot.ai/deployments/gzojj9w9w21e
 - Carrier Ops dashboard: https://hr-carrier-ops.happyrobot.dev
 - Build document: https://claude.ai/artifact/8ss4Y5GmLBNuawUDVSgUP9
-- Repository (private): https://github.com/adiaz0511/happyrobot-carrier-sales
+- Repository: https://github.com/adiaz0511/inbound-carrier-sales-agent

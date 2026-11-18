@@ -1,6 +1,6 @@
 # Build document appendix: IT review detail
 
-The [full technical reference](https://github.com/adiaz0511/happyrobot-carrier-sales/blob/main/docs/reference/TECHNICAL_REFERENCE.md) documents the complete implementation, controls, and test detail in the repository.
+The [full technical reference](https://github.com/adiaz0511/inbound-carrier-sales-agent/blob/main/docs/reference/TECHNICAL_REFERENCE.md) documents the complete implementation, controls, and test detail in the repository.
 
 ## A. API surface
 

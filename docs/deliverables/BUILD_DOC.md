@@ -226,4 +226,4 @@ In other words, the system works and its safeguards hold. Its dollar value depen
 
 - Live workflow (web call): https://platform.happyrobot.ai/deployments/gzojj9w9w21e
 - Carrier Ops dashboard: https://hr-carrier-ops.happyrobot.dev
-- Repository (private): https://github.com/adiaz0511/happyrobot-carrier-sales
+- Repository: https://github.com/adiaz0511/inbound-carrier-sales-agent
